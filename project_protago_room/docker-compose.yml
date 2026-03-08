@@ -1,0 +1,20 @@
+#.ymlファイルはdockerを起動するボタン
+# Dockerを起動する設定ファイル
+#
+services: # dockerで起動するアプリ一覧
+  web: #コンテナの名前(Djangoサーバーのコンテナ)
+    build: . #dockerファイルからdocker images作成 (. は現在のフォルダの意)
+    ports:
+      - "8000:8000" #pcのポート->docker
+    volumes:
+      - .:/code #pcのフォルダをdockerと同期している(修正が反映される)
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: game_db
+      MYSQL_USER: django
+      MYSQL_PASSWORD: django
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
