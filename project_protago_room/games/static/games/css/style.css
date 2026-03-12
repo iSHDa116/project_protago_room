@@ -1,0 +1,29 @@
+.game-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+
+    background: linear-gradient(-45deg, #1e7e34, #20c997, #198754, #0d6efd);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+

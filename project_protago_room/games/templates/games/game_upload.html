@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}アップロード{% endblock title %}
+
+{% block content %}
+
+<form action="" method="post"enctype="multipart/form-data" class="p-4 m-4 bg-light border border-success rounded form-group">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-success">投稿</button>
+</form>
+
+{% endblock content %}
+

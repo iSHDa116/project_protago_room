@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}作品一覧{% endblock title %}
+
+{% comment %} {% block header %}
+        <header>
+            <div class="game-header">
+                🎮PROTAGO ROOM🚀
+            </div>
+        </header>
+{% endblock header %} {% endcomment %}
+
+{% block h1 %}作品一覧{% endblock h1 %}
+{% block content %}
+
+{% comment %} ToDo:評価順 TOP5 {% endcomment %}
+ <div class="card" style="width: 18rem;">
+  {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+{% comment %} ToDo]:新着順　 {% endcomment %}
+
+{% endblock content %}
