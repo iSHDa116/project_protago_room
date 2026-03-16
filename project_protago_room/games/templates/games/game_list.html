@@ -14,13 +14,19 @@
 {% block content %}
 
 {% comment %} ToDo:評価順 TOP5 {% endcomment %}
- <div class="card" style="width: 18rem;">
-  {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+ <main class="bg-light d-flex m-5 ">
+  {% for game in games %}
+    <div class="card m-3" style="width: 18rem;">
+    {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+    <div class="card-body">
+      <h5 class="card-title">{{game.title}}</h5>
+      <p class="card-text">{{game.description}}</p>
+      <a href="#" class="btn btn-primary">Let's Play!!</a>
+    </div>
+  {% endfor %}
+
+ </main>
+
 </div>
 
 {% comment %} ToDo]:新着順　 {% endcomment %}

@@ -10,12 +10,44 @@
         </header>
 {% endblock header %} {% endcomment %}
 
-{% block h1 %}ホーム画面{% endblock h1 %}
 {% block content %}
 
-{% comment %} ToDo:評価順 TOP5 {% endcomment %}
+<main class="justify-content-center m-5 bg-light rounded">
 
-{% comment %} ToDo]:新着順　 {% endcomment %}
+    <h2 class="mb-3 d-flex justify-content-center">-人気順-</h2>
+
+    <!-- 横スクロール -->
+    <div class="d-flex justify-content-center overflow-auto gap-3 pb-3">
+
+        <!-- カード -->
+        <div class="card" style="min-width:220px;">
+            <img src="https://placehold.co/300x180" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">ゲームタイトル</h6>
+                <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+            </div>
+        </div>
+
+        <div class="card" style="min-width:220px;">
+            <img src="https://placehold.co/300x180" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">ゲームタイトル</h6>
+                <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+            </div>
+        </div>
+
+        <div class="card" style="min-width:220px;">
+            <img src="https://placehold.co/300x180" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">ゲームタイトル</h6>
+                <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
 
 {% endblock content %}
 
