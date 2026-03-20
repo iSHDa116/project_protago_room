@@ -1,10 +1,12 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
     
-    path('',views.index_view,name=('index')),
-    path('game/list/', views.GameListView.as_view(), name=('list')),
-    path('game/upload/', views.GameUploadView.as_view(), name=('upload')),
-    path('game/play', views.play_view,name=('play')),
-]
+    path('',views.index_view,name=('game_index')),
+    path('game/list/', views.GameListView.as_view(), name=('games_list')),
+    path('game/upload/', views.GameUploadView.as_view(), name=('game_upload')),
+    path('game/<int:pk>/play', views.play_view,name=('game_play')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

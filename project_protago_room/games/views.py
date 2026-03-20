@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import (ListView, CreateView, )
 from . import models
@@ -8,7 +8,9 @@ def index_view(request):
     return render(request, 'games/index.html')
 
 def play_view(request, pk):
-    return render(request, 'game/game_play.html')
+    game = get_object_or_404(models.Game, pk=pk)
+    context = {'game_link': game.game_link}
+    return render(request, 'games/game_play.html',context)
 
 class GameListView(ListView):
     model = models.Game
@@ -20,5 +22,5 @@ class GameUploadView(CreateView):
     template_name = 'games/game_upload.html'
     model = models.Game
     fields = ['title', 'description', 'game_link', 'thumbnail_url']
-    success_url = reverse_lazy('index')   
+    success_url = reverse_lazy('games_list')   
     

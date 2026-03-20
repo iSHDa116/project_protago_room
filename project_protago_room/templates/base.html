@@ -1,20 +1,20 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "style.css" %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'games/css/style.css' %}">
+    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
 
     <title>{% block title %}{% endblock title %} | プロタゴルーム</title>
 
 
 </head>
-<body class="bg-secondary">
+<body>
 
     {% block header %}
 
@@ -23,9 +23,9 @@
     <div class="navbar navbar-dark bg-success">
         <div>
             <nav class="navbar navbar-dark bg-success d-flex flex-row">
-                <a href="{% url "index" %}" class="nav-link mx-3 text-light">🏠ホーム</a>
-                <a href="{% url "list" %}" class="nav-link mx-3 text-light">🐿️一覧</a>
-                <a href="{% url "upload" %}" class="nav-link mx-3 text-light">📝投稿</a>
+                <a href="{% url "game_index" %}" class="nav-link mx-3 text-light">🏠ホーム</a>
+                <a href="{% url "games_list" %}" class="nav-link mx-3 text-light">🐿️一覧</a>
+                <a href="{% url "game_upload" %}" class="nav-link mx-3 text-light">📝投稿</a>
             </nav>
         </div>
         <div>
@@ -42,45 +42,14 @@
                         </form>
                     </search>
                     <p class="nav mx-3 text-light">こんにちは、ゲストさん </p>
-                    <p class="nav mx-2 text-light">ログイン</p>
-                    <p class="nav mx-3 text-light">サインアップ</p>
+                    <a href="#" class="nav mx-2 text-light">ログイン</a>
+                    <a href="#" class="nav mx-3 text-light">サインアップ</a>
 
                 </div>
             </nav>
         </div>
 
     </div>
-    <div class="offcanvas offcanvas-start text-light bg-success" tabindex="-1" id="sidebar">
-        <div class="offcanvas-header bg-light border-bottom border-dark border-3">
-            {% comment %} {% if user.is_authenticated %}
-                <h5 class="text-light">こんにちは、{{user.user_name}}さん </h5>
-            {% elif  %}
-                <h5 class="text-light">こんにちは、ゲストさん </h5>
-            {% endif %} {% endcomment %}
-                <h5 class="text-dark">こんにちは、ゲストさん </h5>
-
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-        </div>
-
-        <div class="offcanvas-body ">
-            <h5 class="text-light">メニュー</h5>
-            <ul class="list-group ">
-                <li class="list-group-item bg-success border-1">
-                    <a href="{% url "index" %}" class="nav-link mx-3 text-light">🏠ホーム</a>
-                </li>
-
-                <li class="list-group-item bg-success border-1">
-                    <a href="{% url "list" %}" class="nav-link mx-3 text-light">🐿️一覧</a>
-                </li>
-
-                <li class="list-group-item bg-success border-1">
-                    <a href="{% url "upload" %}" class="nav-link mx-3 text-light">📝投稿</a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-
 
             <h1>{% block h1 %}{% endblock h1 %}</h1>
                 {% block content %}{% endblock content %}

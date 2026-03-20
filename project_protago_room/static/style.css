@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(74, 74, 74);
+}
+
+main {
+    background-color: rgb(180, 180, 180);
+}
+
+.thumbnail {
+
+    width: 300px;
+    height: 180px;
+}

@@ -1,11 +1,19 @@
-{% base.html %}
+{% extends "base.html" %}
 
 {% block title %}ゲーム{% endblock title %}
 
-{% block h1 %}ゲーム画面{% endblock h1 %}
 {% block content %}
-
-    
+    <main class=" m-5 rounded-4 shadow">
+        <div class="d-flex justify-content-center align-items-center">
+            <iframe src="{{game_link}}/embed"
+                class=" p-5",
+                allowtransparency="true" 
+                width="1080" height="704" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </main>
 
 {% endblock content %}
 

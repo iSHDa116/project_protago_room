@@ -14,16 +14,29 @@
 {% block content %}
 
 {% comment %} ToDo:評価順 TOP5 {% endcomment %}
- <main class="bg-light d-flex m-5 ">
-  {% for game in games %}
-    <div class="card m-3" style="width: 18rem;">
-    {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
-    <div class="card-body">
-      <h5 class="card-title">{{game.title}}</h5>
-      <p class="card-text">{{game.description}}</p>
-      <a href="#" class="btn btn-primary">Let's Play!!</a>
-    </div>
-  {% endfor %}
+ <main class="m-5 rounded-5">
+  <div class="row d-flex ">
+    {% for game in games %}
+
+      {% if game == none %}
+    
+        <p class="text-secondary">まだ何も投稿されていないみたい...泣</p>
+
+      {% else %}
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card m-3 shadow" style="width: 18rem;">
+            <img src="{{ game.thumbnail_url.url }}" class="card-img-top img-thumbnail thumbnail border-bottom" alt="サムネなし"> 
+            <div class="card-body">
+              <h5 class="card-title">{{game.title}}</h5>
+              <p class="card-text">{{game.description}}</p>
+              <a href="{% url "game_play" game.pk%}" class="text-light btn bg-success mx-5 d-flex justify-content-center">Let's Play!!</a>
+              </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
 
  </main>
 
