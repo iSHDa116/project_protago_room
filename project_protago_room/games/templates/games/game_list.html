@@ -2,19 +2,13 @@
 
 {% block title %}作品一覧{% endblock title %}
 
-{% comment %} {% block header %}
-        <header>
-            <div class="game-header">
-                🎮PROTAGO ROOM🚀
-            </div>
-        </header>
-{% endblock header %} {% endcomment %}
+
 
 {% block h1 %}作品一覧{% endblock h1 %}
 {% block content %}
 
 {% comment %} ToDo:評価順 TOP5 {% endcomment %}
- <main class="m-5 rounded-5">
+ <main class="m-5 rounded-5 ">
   <div class="row d-flex ">
     {% for game in games %}
 
@@ -23,13 +17,17 @@
         <p class="text-secondary">まだ何も投稿されていないみたい...泣</p>
 
       {% else %}
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="card m-3 shadow" style="width: 18rem;">
-            <img src="{{ game.thumbnail_url.url }}" class="card-img-top img-thumbnail thumbnail border-bottom" alt="サムネなし"> 
+        <div class="col-12 col-md-6 col-lg-3 gap-3">
+          <div class="card m-3 shadow border-2 border-success" style="width: 18rem;">
+            {% if game.thumbnail_url.url != NONE %}
+                <img src="{{ game.thumbnail_url.url }}" class="card-img-top img-thumbnail thumbnail border-bottom">
+            {% else %}
+                <img src="https://placehold.co/300x180" class="card-img-top img-thumbnail thumbnail border-bottom">
+            {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{game.title}}</h5>
               <p class="card-text">{{game.description}}</p>
-              <a href="{% url "game_play" game.pk%}" class="text-light btn bg-success mx-5 d-flex justify-content-center">Let's Play!!</a>
+              <a href="{% url 'game_play' game.pk%}" class="text-light btn bg-success mx-5 d-flex justify-content-center">Let's Play!!</a>
               </div>
           </div>
         </div>
@@ -42,6 +40,6 @@
 
 </div>
 
-{% comment %} ToDo]:新着順　 {% endcomment %}
+<!-- ToDo]:新着順 -->
 
 {% endblock content %}

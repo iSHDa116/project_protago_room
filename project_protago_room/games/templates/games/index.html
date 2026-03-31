@@ -2,52 +2,77 @@
 
 {% block title %}ホーム{% endblock title %}
 
-{% comment %} {% block header %}
-        <header>
-            <div class="game-header">
-                🎮PROTAGO ROOM🚀
-            </div>
-        </header>
-{% endblock header %} {% endcomment %}
 
 {% block content %}
 
 <main class="justify-content-center m-5 rounded">
 
-    <h2 class="mb-3 d-flex justify-content-center">-人気順-</h2>
+    <div class="text-center overflow-auto my-3">
+        <h2 class="mb-3 text-light">-人気順-</h2>
+        <div class="d-flex justify-content-center overflow-auto gap-3 pb-3">
+            <!-- 横スクロール -->
+            <div class="card" style="min-width:220px;">
+                <img src="https://placehold.co/300x180" class="card-img-top">
+                <div class="card-body">
+                    <h6 class="card-title">ゲームタイトル</h6>
+                    <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+                </div>
+            </div>
 
-    <!-- 横スクロール -->
-    <div class="d-flex justify-content-center overflow-auto gap-3 pb-3">
+            <div class="card" style="min-width:220px;">
+                <img src="https://placehold.co/300x180" class="card-img-top">
+                <div class="card-body">
+                    <h6 class="card-title">ゲームタイトル</h6>
+                    <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+                </div>
+            </div>
 
-        <!-- カード -->
-        <div class="card" style="min-width:220px;">
-            <img src="https://placehold.co/300x180" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">ゲームタイトル</h6>
-                <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+            <div class="card" style="min-width:220px;">
+                <img src="https://placehold.co/300x180" class="card-img-top">
+                <div class="card-body">
+                    <h6 class="card-title">ゲームタイトル</h6>
+                    <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+                </div>
             </div>
         </div>
-
-        <div class="card" style="min-width:220px;">
-            <img src="https://placehold.co/300x180" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">ゲームタイトル</h6>
-                <a href="#" class="btn btn-sm btn-primary">PLAY</a>
-            </div>
-        </div>
-
-        <div class="card" style="min-width:220px;">
-            <img src="https://placehold.co/300x180" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">ゲームタイトル</h6>
-                <a href="#" class="btn btn-sm btn-primary">PLAY</a>
-            </div>
-        </div>
-
     </div>
 
-</main>
+    <hr class="border border-2 border-secondary">
+    
+    <!-- コンクール金賞作品 -->
+    <div class="text-center overflow-auto my-3 ">
+        <h2 class="text-warning mb-3">コンクール金賞作品</h2>
+            <!-- カード -->
+            <div class="card-gruop d-flex justify-content-center gap-3 pb-3">
+                <div class="card" style="min-width:220px;">
+                    <img src="https://placehold.co/300x180" class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-title">ゲームタイトル</h6>
+                        <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+                    </div>
+                </div>
+                
+                <div class="card" style="min-width:220px;">
+                    <img src="https://placehold.co/300x180" class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-title">ゲームタイトル</h6>
+                        <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+                    </div>
+                </div>
+                
+                <div class="card" style="min-width:220px;">
+                    <img src="https://placehold.co/300x180" class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-title">ゲームタイトル</h6>
+                        <a href="#" class="btn btn-sm btn-primary">PLAY</a>
+                    </div>
+                </div>
+            </div>
+            
 
+            <a href="#" class="btn btn-success btn-outline-warning">もっと見る</a>
+    </div>
+</main>
 
 {% endblock content %}
 

@@ -5,8 +5,8 @@ from . import views
 
 urlpatterns = [
     
-    path('',views.index_view,name=('game_index')),
+    path('',views.HomeView.as_view(),name=('game_index')),
     path('game/list/', views.GameListView.as_view(), name=('games_list')),
     path('game/upload/', views.GameUploadView.as_view(), name=('game_upload')),
-    path('game/<int:pk>/play', views.play_view,name=('game_play')),
+    path('game/<int:pk>/play', views.PlayView.as_view(),name=('game_play')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

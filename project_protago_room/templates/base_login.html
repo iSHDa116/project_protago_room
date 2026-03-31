@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" >
+    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+    <title>{% block title %}{% endblock title %} | プロタゴルーム</title>
+
+
+</head>
+<body>
+
+    {% block header %}
+
+    {% endblock header %}
+
+    <div class="navbar navbar-dark bg-dark ">
+        <p class="nav mx-3 text-light">こんにちは、ゲストさん </p>
+    </div>
+
+                {% block content %}{% endblock content %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+    {% include "footer.html" %}
+</body>
+</html>
