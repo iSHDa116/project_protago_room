@@ -45,6 +45,25 @@
         }
     </script>
 
+    <div class="d-flex justify-content-center">
+        <div class="card border border-2 border-success" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">確認</h5>
+                <hr>
+                <p class="card-text">
+                    本当に削除してもよろしいですか？
+                </p>
+                <hr>
+                <div class="">
+                    <a href="#" class="btn btn-danger"> 削除 </a>
+                    <a href="#" class="btn btn-secondary">キャンセル</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="mx-5 mb-5 border border-1 border-success bg-dark ">
         <div class="border border-1 border-success justify-content-center">
             {% if game.game_type == "scratch" %}
@@ -99,7 +118,7 @@
             </div>
         </div>
         <div class="m-2">
-            <a href="{% url "games_list" %}" class="btn btn-secondary p-2"> ◀ 戻る</a>
+            <a href="{% url 'games_list' %}" class="btn btn-secondary p-2"> ◀ 戻る</a>
         </div>
     </div>
 

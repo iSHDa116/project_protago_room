@@ -1,0 +1,30 @@
+<div class="navbar navbar-dark bg-dark fixed-top border border-bottom-2 border-success ">
+    <nav class="d-flex flex-row">
+        <a href="{% url 'game_index' %}" class="nav-link mx-3 text-light">🏠ホーム</a>
+        <a href="{% url 'games_list' %}" class="nav-link mx-3 text-light">🐿️一覧</a>
+        <a href="{% url 'game_upload' %}" class="nav-link mx-3 text-light">📝投稿</a>
+    </nav>
+
+    <div>
+        <nav class="navbar d-flex flex-row">
+            {% comment %}<!--  {% if user.is_authenticated %}
+                <h5 class="text-light">こんにちは、{{user.user_name}}さん </h5>
+            {% elif  %}
+                <h5 class="text-light">こんにちは、ゲストさん </h5>
+            {% endif %}  -->
+            {% endcomment %}
+            <search class="">
+                <form action="./search/" method="GET">
+                    <input type="search" id="movie" class="border-success-subtle border-2 px-5" name="q"
+                        placeholder="ゲーム/ユーザーを検索..." autocomplete="on" />
+                    <button class="btn btn-light border-success-subtle border-2 text-success py-1"
+                        type="submit">検索</button>
+                </form>
+            </search>
+            <p class="nav mx-3 text-light">こんにちは、ゲストさん </p>
+            <a href="{% url 'login' %}" class="nav text-decoration-none mx-2 text-light">ログイン</a>
+            <a href="{% url 'signup' %}" class="nav text-decoration-none mx-3 text-light">サインアップ</a>
+
+    </div>
+    </nav>
+</div>

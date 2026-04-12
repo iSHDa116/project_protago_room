@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}アップロード{% endblock title %}
+{% block title %}削除{% endblock title %}
 
 {% block content %}
 
 <div class="d-flex justify-content-center  ">
-    <form action="" method="post"enctype="multipart/form-data" class="p-4 m-4  border border-2 border-success shadow bg-secondary rounded form-group">
+    <form action="" method="post" enctype="multipart/form-data"
+        class="p-4 m-4  border border-2 border-success shadow bg-secondary rounded form-group">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit" class="btn btn-success">投稿</button>
@@ -13,4 +14,3 @@
 </div>
 
 {% endblock content %}
-

@@ -3,7 +3,7 @@ import os
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import (ListView, CreateView, TemplateView, DetailView )
+from django.views.generic import (ListView, CreateView, TemplateView, DetailView, DeleteView)
 from reviews.models import Like
 from . import forms
 from . import models
@@ -64,3 +64,8 @@ class GameUploadView(CreateView):
                 zip_ref.extractall(extract_path)
             
         return response
+    
+class GameDeleteView(DeleteView):
+    template_name = "games/game_delete.html"
+    model = models.Game
+    success_url = reverse_lazy('games_list')

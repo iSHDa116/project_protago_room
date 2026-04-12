@@ -9,4 +9,5 @@ urlpatterns = [
     path('game/list/', views.GameListView.as_view(), name=('games_list')),
     path('game/upload/', views.GameUploadView.as_view(), name=('game_upload')),
     path('game/<int:pk>/play', views.PlayView.as_view(),name=('game_play')),
+    path('game/delete/<int:pk>/', views.GameDeleteView.as_view(), name=('game_delete')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
