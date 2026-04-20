@@ -1,12 +1,17 @@
-from django.views.generic.base import TemplateView
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView
 
-class LoginView(TemplateView):
-    template_name = "registration/login.html"
+from .forms import SignUpForm
 
 # Create your views here.
-class SignupView(TemplateView):
+class SignupView(CreateView):
+    model = User
+    form_class = SignUpForm
     template_name = "registration/singup.html"
+    success_url = reverse_lazy('game_index')
 
 
-class SignupDoneView(TemplateView):
+class SignupDoneView(DeleteView):
     template_name = "registration/signup_done.html"

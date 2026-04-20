@@ -1,16 +1,44 @@
 import zipfile
 import os
 from django.conf import settings
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from django.views.generic import (ListView, CreateView, TemplateView, DetailView, DeleteView)
 from reviews.models import Like
 from . import forms
 from . import models
 
+#ユーザーの権限
+class AdminOnlyMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.is_authenticated and self.request.user.is_staff
+    
 # Create your views here.
 class HomeView(TemplateView):
     template_name = 'games/index.html'
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+
+        gold_games = []
+
+        for dept in ['J', 'A', 'S']:
+            game = models.Game.objects.filter(
+                concours='Gold',
+                department=dept,
+                is_published=True
+            ).first()
+
+            if game:
+                gold_games.append(game)
+        
+        context['gold'] = models.Game.objects.filter(concours='Gold')
+        context['silver'] = models.Game.objects.filter(concours='Silver')
+        context['bronze'] = models.Game.objects.filter(concours='Bronze')
+        return context
+        # context['popular'] = models.Game.objects.annotate()
 
 class PlayView(DetailView):
     template_name = 'games/game_play.html'
@@ -41,7 +69,7 @@ class GameListView(ListView):
     #テンプレートに、名前をつけてデータを渡している
     context_object_name = 'games'
 
-class GameUploadView(CreateView):
+class GameUploadView(AdminOnlyMixin,CreateView):
     template_name = 'games/game_upload.html'
     model = models.Game
     form_class = forms.GameForm
@@ -65,7 +93,8 @@ class GameUploadView(CreateView):
             
         return response
     
-class GameDeleteView(DeleteView):
+class GameDeleteView(AdminOnlyMixin,DeleteView):
     template_name = "games/game_delete.html"
     model = models.Game
     success_url = reverse_lazy('games_list')
+

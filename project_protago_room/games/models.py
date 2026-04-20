@@ -3,9 +3,10 @@ from django.db import models
 class Game(models.Model):
     
     
-    SCHOOL_CHOICES = [('eifuku','永福町'),('goutokuji','豪徳寺'),('odakyuSagamihara','小田急相模原'),]
+    SCHOOL_CHOICES = [('eifuku','永福町'),('goutokuji','豪徳寺'),('kugayama','久我山'),('odakyuSagamihara','小田急相模原'),]
     GAMETYPE_CHOICES = [('scratch','スクラッチ') , ('unity','Unity'),]
     CONCOURS = [('Gold','金賞'),('Silver','銀賞'),('Bronze','銅賞')]
+    DEPARTMENT = [('J','ジュニア'),('A','アドバンス'),('S','スタンダード')]
     
     title = models.CharField(max_length=50, verbose_name='作品名')
     creater = models.CharField(max_length=25, verbose_name='作者', blank=True, null=True)
@@ -28,9 +29,11 @@ class Game(models.Model):
     is_published = models.BooleanField(default=True) #公開・非公開・審査の判定
     play_count = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
+
     #コンクール受賞か否か
-    concours = models.TextField(choices=CONCOURS, blank=True, null=True)    
+    concours = models.TextField(choices=CONCOURS, blank=True, null=True)
+    department = models.TextField(choices=DEPARTMENT, blank=True, null=True)
     def __str__(self):
         return self.title
 

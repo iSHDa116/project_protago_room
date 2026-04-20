@@ -2,7 +2,9 @@
     <nav class="d-flex flex-row">
         <a href="{% url 'game_index' %}" class="nav-link mx-3 text-light">🏠ホーム</a>
         <a href="{% url 'games_list' %}" class="nav-link mx-3 text-light">🐿️一覧</a>
-        <a href="{% url 'game_upload' %}" class="nav-link mx-3 text-light">📝投稿</a>
+        {% if user.is_staff %}
+            <a href="{% url 'game_upload' %}" class="nav-link mx-3 text-light">📝投稿</a>
+        {% endif %}
     </nav>
 
     <div>
@@ -21,9 +23,19 @@
                         type="submit">検索</button>
                 </form>
             </search>
-            <p class="nav mx-3 text-light">こんにちは、ゲストさん </p>
-            <a href="{% url 'login' %}" class="nav text-decoration-none mx-2 text-light">ログイン</a>
-            <a href="{% url 'signup' %}" class="nav text-decoration-none mx-3 text-light">サインアップ</a>
+            <p class="nav mx-3 text-light">こんにちは、<span class="fw-bold">{{ request.user.username }} </span> さん</p>
+            {% if request.user.is_authenticated %}
+                <form action="{% url 'accounts:logout' %}" method="post" class="nav" >
+                    {% csrf_token %}
+                    <button type="submit" class="text-light" style="background:none; border:none;"  >
+                        ログアウト
+                    </button>
+                </form>
+            {% else %}
+                <a href="{% url 'accounts:login' %}" class="nav text-decoration-none mx-2 text-light">ログイン</a>
+                <a href="{% url 'accounts:signup' %}" class="nav text-decoration-none mx-3 text-light">サインアップ</a>
+            {% endif %}
+
 
     </div>
     </nav>

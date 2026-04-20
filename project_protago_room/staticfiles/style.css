@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+html,body {
+    height: 100%;
+}
+main {
+    background: none !important;
+}
+body {
+    padding-top: 70px;
+    background-color: rgb(24, 24, 24);
+}
+
+
+
+.thumbnail {
+    width: 300px;
+    height: 180px;
+}
+
+.wrapper {
+    width: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+.inner {
+    padding-bottom: 200px;
+    /*フッターの高さと同じにする*/
+}
+
+footer {
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+}

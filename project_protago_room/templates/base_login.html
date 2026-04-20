@@ -9,9 +9,7 @@
     {% comment %} <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
-
     <title>{% block title %}{% endblock title %} | プロタゴルーム</title>
-
 
 </head>
 <body>
@@ -20,14 +18,10 @@
 
     {% endblock header %}
 
-    <div class="navbar navbar-dark bg-dark ">
-        <p class="nav mx-3 text-light">こんにちは、ゲストさん </p>
-    </div>
 
                 {% block content %}{% endblock content %}
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
 
-    {% include "footer.html" %}
 </body>
 </html>
